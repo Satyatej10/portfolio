@@ -30,7 +30,7 @@ const Hero = () => {
         <div className="absolute inset-0 w-full h-full bg-black">
           <Particles
             particleColors={["#ffffff", "#ffffff"]}
-            particleCount={200}
+            particleCount={2000}
             particleSpread={15}
             speed={0.1}
             particleBaseSize={100}
@@ -114,5 +114,4 @@ const Hero = () => {
     </div>
   );
 };
-
 export default Hero;
