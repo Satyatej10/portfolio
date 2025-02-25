@@ -1,9 +1,7 @@
-// src/components/Hero.jsx
 import React, { useState, useEffect } from "react";
 import Particles from "../components/Particles";
 import Navbar from "./Navbar"; // Import the Navbar component
 import RotatingText from "../components/RotatingText";
-
 const Hero = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
