@@ -35,7 +35,6 @@ const About = () => {
                     <p className="text-gray-400 mt-3">Welcome to my portfolio! I hope you enjoy your visit. I specialize in Back-End development with Node.js and Front-End development with React.js. I have worked on various projects, including a Real Link-Shortener, E-Commerce APIs, React-based Website Design and Development, and more.</p>
                     <p className="text-gray-400 mt-3">I am passionate about learning new technologies and building solutions that make a difference. Thank you for visiting my portfolio! I hope you like my work. Happy coding!</p>
                 </div>
-                
             </div>
         </div>
     );

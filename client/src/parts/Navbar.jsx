@@ -1,6 +1,5 @@
-// src/components/Navbar.jsx
-import React, { useState } from "react";
 
+import React, { useState } from "react";
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState(null);
 
@@ -51,8 +50,6 @@ const Navbar = () => {
     </nav>
   );
 };
-
-// Add this CSS in your Tailwind config or a CSS file (e.g., src/index.css)
 const styles = `
   .glassy-button {
     @apply px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/10 text-white font-medium transition-all duration-300 ease-in-out hover:bg-silver-100/20 hover:text-silver-300 hover:shadow-lg hover:scale-105;
@@ -62,5 +59,4 @@ const styles = `
   .text-silver-300 { color: #c0c0c0; }
   .bg-silver-100 { background-color: #f5f5f5; }
 `;
-
 export default Navbar;

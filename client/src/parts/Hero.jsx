@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Particles from "../components/Particles";
-import Navbar from "./Navbar"; // Import the Navbar component
+import Navbar from "./Navbar"; 
 import RotatingText from "../components/RotatingText";
 const Hero = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -17,10 +17,8 @@ const Hero = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-transparent text-white overflow-hidden">
-      {/* Navbar */}
+     
       <Navbar />
-
-      {/* Home Section */}
       <section
         id="home"
         className="flex flex-col items-start justify-center p-5 min-h-screen overflow-hidden"
@@ -81,27 +79,20 @@ const Hero = () => {
             </p>
           </div>
         </div>
-
-        {/* Curved background at the bottom */}
         <div className="fixed bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#0a0a1a] to-[#1a1a3d] rounded-t-full z-[-1]" />
       </section>
-
-      {/* About Section (Black background, no particles) */}
       <section id="about" className="min-h-screen p-5 bg-black">
         <h2 className="text-3xl font-bold text-center">About Me</h2>
         <p className="mt-4 text-gray-300">
           More details about Satya Tej, his experience, and skills...
         </p>
       </section>
-
-      {/* Projects Section (Black background, no particles) */}
       <section id="projects" className="min-h-screen p-5 bg-black">
         <h2 className="text-3xl font-bold text-center">My Projects</h2>
         <p className="mt-4 text-gray-300">
           Showcase of projects like Link-Shortener, E-Commerce APIs, etc...
         </p>
       </section>
-
       {/* Connect Section (Black background, no particles) */}
       <section id="connect" className="min-h-screen p-5 bg-black">
         <h2 className="text-3xl font-bold text-center">Connect With Me</h2>
