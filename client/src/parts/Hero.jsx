@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Particles from "../components/Particles";
 import Navbar from "./Navbar"; 
 import RotatingText from "../components/RotatingText";
+import img from "../assets/image.png";
+
 const Hero = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -17,11 +19,10 @@ const Hero = () => {
 
   return (
     <div className="relative w-full min-h-screen bg-transparent text-white overflow-hidden">
-     
       <Navbar />
       <section
         id="home"
-        className="flex flex-col items-start justify-center p-5 min-h-screen overflow-hidden"
+        className="flex flex-col items-center justify-center p-5 min-h-screen overflow-hidden"
       >
         <div className="absolute inset-0 w-full h-full bg-black">
           <Particles
@@ -39,11 +40,11 @@ const Hero = () => {
 
         <div
           className={`relative flex ${
-            isSmallScreen ? "flex-col items-start" : "flex-row items-start"
-          } w-full max-w-5xl pl-5`}
+            isSmallScreen ? "flex-col items-center" : "flex-row items-center justify-between"
+          } w-full max-w-7xl px-5`}
         >
           <div className="w-full max-w-lg text-left">
-            <h1 className="text-3xl font-bold mb-5 animate-fadeInScale">
+            <h1 className="text-3xl font-bold mb-4 mt-5 animate-fadeInScale">
               I AM SATYA TEJ
             </h1>
             <p className="text-gray-400 text-2xl font-bold flex">
@@ -54,7 +55,7 @@ const Hero = () => {
                   "Web Developer",
                   "Competitive Programmer",
                 ]}
-                mainClassName="inline-block px-0 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0 sm:py-1 md:py-2 justify-start rounded-lg font-semibold"
+                mainClassName="inline-block px-0 sm:px-2 md:px-3 bg-black-300 text-white overflow-hidden py-0 sm:py-1 md:py-2 justify-start rounded-lg font-semibold"
                 staggerFrom="last"
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
@@ -78,22 +79,36 @@ const Hero = () => {
               portfolio! I hope you like my work. Happy coding!
             </p>
           </div>
+          
+          {/* Image container */}
+          {!isSmallScreen && (
+            <div className="w-full max-w-md flex items-center justify-end">
+              <img 
+                src={img} 
+                alt="Satya Tej" 
+                loading="lazy"
+                className="max-w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+          )}
         </div>
         <div className="fixed bottom-0 left-0 w-full h-48 bg-gradient-to-t from-[#0a0a1a] to-[#1a1a3d] rounded-t-full z-[-1]" />
       </section>
+      
       <section id="about" className="min-h-screen p-5 bg-black">
         <h2 className="text-3xl font-bold text-center">About Me</h2>
         <p className="mt-4 text-gray-300">
           More details about Satya Tej, his experience, and skills...
         </p>
       </section>
+      
       <section id="projects" className="min-h-screen p-5 bg-black">
         <h2 className="text-3xl font-bold text-center">My Projects</h2>
         <p className="mt-4 text-gray-300">
           Showcase of projects like Link-Shortener, E-Commerce APIs, etc...
         </p>
       </section>
-      {/* Connect Section (Black background, no particles) */}
+      
       <section id="connect" className="min-h-screen p-5 bg-black">
         <h2 className="text-3xl font-bold text-center">Connect With Me</h2>
         <p className="mt-4 text-gray-300">
@@ -103,4 +118,5 @@ const Hero = () => {
     </div>
   );
 };
+
 export default Hero;
