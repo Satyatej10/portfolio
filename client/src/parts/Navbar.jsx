@@ -1,62 +1,89 @@
+import { useState } from 'react';
 
-import React, { useState } from "react";
-const Navbar = () => {
-  const [activeSection, setActiveSection] = useState(null);
+function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (sectionId) => {
-    setActiveSection(sectionId);
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const navItems = [
+    { name: 'Home', path: '#home' },
+    { name: 'About', path: '#about' },
+    { name: 'Projects', path: '#projects' },
+    { name: 'Skills', path: '#skills' },
+    { name: 'Contact', path: '#contact' },
+  ];
 
   return (
-    <nav className="fixed top-0 w-full bg-transparent backdrop-blur-md bg-opacity-30 z-50 p-4">
-      <div className="container mx-auto flex justify-center gap-8">
-        <button
-          onClick={() => scrollToSection("home")}
-          className={`glassy-button ${
-            activeSection === "home" ? "text-silver-300" : "text-white"
-          }`}
-        >
-          Home
-        </button>
-        <button
-          onClick={() => scrollToSection("about")}
-          className={`glassy-button ${
-            activeSection === "about" ? "text-silver-300" : "text-white"
-          }`}
-        >
-          About
-        </button>
-        <button
-          onClick={() => scrollToSection("projects")}
-          className={`glassy-button ${
-            activeSection === "projects" ? "text-silver-300" : "text-white"
-          }`}
-        >
-          Projects
-        </button>
-        <button
-          onClick={() => scrollToSection("connect")}
-          className={`glassy-button ${
-            activeSection === "connect" ? "text-silver-300" : "text-white"
-          }`}
-        >
-          Connect
-        </button>
+    <nav className="fixed w-full bg-white shadow-md z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16">
+          <div className="flex items-center">
+            <span className="font-bold text-xl text-gray-800">YourName</span>
+          </div>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.path}
+                className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 focus:outline-none"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.path}
+                className="text-gray-600 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
-};
-const styles = `
-  .glassy-button {
-    @apply px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/10 text-white font-medium transition-all duration-300 ease-in-out hover:bg-silver-100/20 hover:text-silver-300 hover:shadow-lg hover:scale-105;
-  }
+}
 
-  /* Ensure Tailwind understands the silver color */
-  .text-silver-300 { color: #c0c0c0; }
-  .bg-silver-100 { background-color: #f5f5f5; }
-`;
 export default Navbar;
