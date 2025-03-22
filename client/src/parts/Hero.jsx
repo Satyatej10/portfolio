@@ -39,6 +39,16 @@ const Hero = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.substring(1); // Remove the "#"
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   const navItems = [
     { name: "Home", path: "#home" },
     { name: "About", path: "#about" },
@@ -428,7 +438,7 @@ const Hero = () => {
           <div className="mt-6 sm:mt-8 text-center">
             <button
               onClick={handleShowMore}
-              className="px-4 py-2 sm:px-6 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base"
+              className="px-4 py-2 sm:px-6 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base cursor-pointer"
             >
               Show More
             </button>
