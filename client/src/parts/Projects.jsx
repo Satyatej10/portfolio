@@ -1,35 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 import Particles from "../components/Particles";
+import project1Img from "../assets/project1.jpg";
+import project2Img from "../assets/project2.png";
+import project3Img from "../assets/project3.png";
 
 const Projects = () => {
   const navigate = useNavigate();
+  const [visibleProjects, setVisibleProjects] = useState(3);
 
   const projects = [
     {
-      title: "Link-Shortener",
-      shortDescription: "A real-time URL shortening service with analytics",
-      link: "#",
+      title: "FarmDirect",
+      shortDescription:
+        "FarmDirect is an online platform connecting farmers directly with consumers for fresh, farm-to-table produce.",
+      image: project1Img,
+      liveDemo: "https://farmdirect-beta.vercel.app/login",
+      github: "https://github.com/Satyatej10/Farmdirect",
     },
     {
-      title: "E-Commerce APIs",
-      shortDescription: "RESTful APIs for an e-commerce platform",
-      link: "#",
+      title: "Restaurant Finder",
+      shortDescription:
+        "Restaurant Finder is an app that helps users discover nearby restaurants based on name, cuisine, and location.",
+      image: project2Img,
+      liveDemo: "https://restaurent-satyatej10-main.vercel.app/",
+      github: "https://github.com/Satyatej10/RestaurantFinder",
     },
     {
-      title: "React Website",
-      shortDescription: "Modern portfolio website with animations",
-      link: "#",
-    },
-    {
-      title: "Project 4",
-      shortDescription: "Another innovative project",
-      link: "#",
+      title: "Copy Catcher",
+      shortDescription:
+        "A plagiarism checker that detects copied content by comparing text against a vast database of sources.",
+      image: project3Img,
+      liveDemo: "https://plagiarism-mbhvwr79qwsumc6lwzealx.streamlit.app/",
+      github: "https://github.com/Satyatej10/plagiarism",
     },
   ];
 
   const handleBack = () => {
-    navigate("/"); // Redirect back to home
+    navigate("/");
+  };
+
+  const handleShowMore = () => {
+    setVisibleProjects((prev) => prev + 3);
   };
 
   return (
@@ -37,9 +50,9 @@ const Projects = () => {
       <div className="absolute inset-0 w-full h-full bg-black">
         <Particles
           particleColors={["#ffffff", "#ffffff"]}
-          particleCount={250}
+          particleCount={100} // Reduced for performance
           particleSpread={15}
-          speed={0.1}
+          speed={0.05} // Slower speed
           particleBaseSize={100}
           moveParticlesOnHover={true}
           alphaParticles={false}
@@ -48,29 +61,62 @@ const Projects = () => {
         />
       </div>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 className="text-3xl font-bold mb-8 text-center">All Projects</h2>
+        <h2 className="text-4xl font-bold mb-10 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight">
+          My Projects
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {projects.slice(0, visibleProjects).map((project, index) => (
             <div
               key={index}
-              className="bg-black/50 backdrop-blur-sm rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+              className="bg-black/50 backdrop-blur-md rounded-lg shadow-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-black/60 focus-within:ring-2 focus-within:ring-blue-500"
+              tabIndex={0}
             >
+              <img
+                src={project.image}
+                alt={`${project.title} preview`}
+                className="w-full h-40 object-cover rounded-md mb-4 transition-transform duration-300 hover:scale-110"
+              />
               <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-              <p className="text-gray-300 mb-4">{project.shortDescription}</p>
-              <a href={project.link} className="text-blue-400 hover:text-blue-300 font-medium">
-                View Project →
-              </a>
+              <p className="text-gray-300 mb-4 leading-relaxed">{project.shortDescription}</p>
+              <div className="flex space-x-4">
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Live Demo
+                </a>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors duration-200 flex items-center focus:outline-none focus:ring-2 focus:ring-gray-500"
+                >
+                  <FaGithub className="mr-2" /> GitHub
+                </a>
+              </div>
             </div>
           ))}
         </div>
-        <div className="mt-8 text-center">
-          <button
-            onClick={handleBack}
-            className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
-          >
-            Back to Home
-          </button>
-        </div>
+        {visibleProjects < projects.length && (
+          <div className="mt-8 text-center">
+            <button
+              onClick={handleShowMore}
+              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Show More
+            </button>
+          </div>
+        )}
+      </div>
+      <div className="mt-8 text-center">
+        <button
+          onClick={handleBack}
+          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Back to Home
+        </button>
       </div>
     </div>
   );
