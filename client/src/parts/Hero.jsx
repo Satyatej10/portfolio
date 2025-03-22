@@ -216,7 +216,7 @@ const Hero = () => {
       <div className="absolute inset-0 w-full h-full bg-black z-[0]">
         <Particles
           particleColors={["#ffffff", "#ffffff"]}
-          particleCount={1500} // Reduced for mobile performance
+          particleCount={6500} // Reduced for mobile performance
           particleSpread={12}
           speed={0.06} // Slightly slower for mobile
           particleBaseSize={60} // Smaller particles on mobile
