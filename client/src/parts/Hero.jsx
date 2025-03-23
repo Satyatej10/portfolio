@@ -554,7 +554,7 @@ const Hero = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="px-4 py-2 sm:px-6 sm:py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 text-sm sm:text-base"
+                    className="px-4 py-2 sm:px-6 sm:py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 text-sm sm:text-base cursor-pointer"
                   >
                     Send Message
                   </button>
