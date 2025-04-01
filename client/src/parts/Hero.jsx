@@ -21,6 +21,7 @@ import {
   FaCuttlefish,
   FaPython,
   FaBrain,
+
 } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss } from "react-icons/si";
 
@@ -104,13 +105,13 @@ const Hero = () => {
     {
       name: "C++",
       icon: <FaCuttlefish />,
-      level: "Intermediate",
+      level: "Advanced",
       description: "Experience with object-oriented programming, competitive programming, STL, and algorithmic problem-solving using C++.",
     },
     {
       name: "Python",
       icon: <FaPython />,
-      level: "Intermediate",
+      level: "Advanced",
       description: "Knowledgeable in Python for scripting, backend development (Flask, FastAPI), and working with libraries like NumPy and Pandas.",
     },
     {
