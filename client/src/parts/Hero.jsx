@@ -343,12 +343,12 @@ const Hero = () => {
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Education</h3>
                     <p className="text-gray-300 text-sm sm:text-base">B.Sc. in Computer Science</p>
-                    <p className="text-gray-400 text-xs sm:text-sm">[Your University] - [Year]</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">[GVPCE] - [2026]</p>
                   </div>
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Experience</h3>
-                    <p className="text-gray-300 text-sm sm:text-base">Full Stack Developer</p>
-                    <p className="text-gray-400 text-xs sm:text-sm">[Company] - [Duration]</p>
+                    <p className="text-gray-300 text-sm sm:text-base">AI ML VIRTUAL INTERN</p>
+                    <p className="text-gray-400 text-xs sm:text-sm">[GOOGLE-AICTE] - [2024]</p>
                   </div>
                 </div>
               </div>
