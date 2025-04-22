@@ -343,7 +343,7 @@ const Hero = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Education</h3>
-                    <p className="text-gray-300 text-sm sm:text-base">B.Sc. in Computer Science</p>
+                    <p className="text-gray-300 text-sm sm:text-base">B.TECH in Computer Science AI-ML</p>
                     <p className="text-gray-400 text-xs sm:text-sm">[GVPCE] - [2026]</p>
                   </div>
                   <div>
