@@ -4,7 +4,7 @@ import Particles from "../components/Particles";
 import RotatingText from "../components/RotatingText";
 import ShinyText from "../components/ShinyText";
 import SpotlightCard from "../components/SpotlightCard";
-import { FaGithub, FaEnvelope, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaEnvelope, FaLinkedin,FaRobot } from "react-icons/fa";
 import img from "../assets/globe.png";
 import aboutImg from "../assets/black.png";
 import project1Img from "../assets/project1.jpg";
@@ -120,6 +120,18 @@ const Hero = () => {
       level: "Intermediate-Advanced",
       description: "Proficient in solving problems using arrays, linked lists, trees, graphs, dynamic programming, and hashing techniques.",
     },
+    {
+      name: "Machine Learning",
+      icon: <FaRobot />, // or <FaMicrochip /> if you prefer
+      level: "Intermediate-Advanced",
+      description: "Skilled in supervised/unsupervised learning, model evaluation, feature engineering, and implementing ML algorithms for real-world problems.",
+    },
+    {
+      name: "scikit-learn",
+      icon: <FaPython />, // or custom sklearn icon if available
+      level: "Intermediate",
+      description: "Experienced with sklearn's pipelines, model selection, preprocessing tools, and implementing various ML algorithms efficiently.",
+    },
   ];
 
   const projects = [
@@ -145,11 +157,11 @@ const Hero = () => {
       github: "https://github.com/Satyatej10/plagiarism",
     },
     {
-      title: "Project 4",
-      shortDescription: "Another innovative project",
-      image: project4Img,
-      liveDemo: "https://project4-demo.com",
-      github: "https://github.com/Satyatej10/project4",
+      title: "Url Shortener",
+      shortDescription: "A URL shortener is a web service that converts long URLs into shorter, more manageable links for easy sharing and tracking.",
+      image: project3Img,
+      liveDemo: "https://linkly-rosy.vercel.app/",
+      github: "https://github.com/Satyatej10/url_shortner",
     },
   ];
 
@@ -306,7 +318,7 @@ const Hero = () => {
               />
             </p>
         <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed">
-              Welcome to my portfolio! I specialize in Back-End development with Node.js and Front-End development with React.js, delivering projects like Link-Shorteners and E-Commerce APIs.
+              Welcome to my portfolio! I specialize in Back-End development with Node.js and Front-End development with React.js, delivering projects like FarmDirect and DineFinder.
             </p>
             <p className="text-gray-400 mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed">
               Passionate about coding and innovation, I’m always excited to explore new technologies and create impactful solutions.
@@ -334,12 +346,15 @@ const Hero = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
             <div className="w-full lg:w-1/2">
               <div className="bg-black/70 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-xl border border-gray-800">
-                <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
-                  I'm Satyatej, a versatile developer skilled in{" "}
-                  <span className="text-blue-400 font-semibold">React.js</span> for dynamic UIs,{" "}
-                  <span className="text-blue-400 font-semibold">Machine Learning</span> for intelligent systems, and{" "}
-                  <span className="text-blue-400 font-semibold">Data Structures</span> for optimized solutions.
-                </p>
+              <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+                I'm Satyatej, a passionate full-stack developer with expertise in crafting 
+                <span className="text-blue-400 font-semibold"> interactive React.js applications</span>, 
+                building intelligent systems with 
+                <span className="text-blue-400 font-semibold"> cutting-edge Machine Learning</span>, 
+                and solving complex problems through 
+                <span className="text-blue-400 font-semibold"> efficient Data Structures and Algorithms</span>. 
+                I thrive at the intersection of innovation and practical implementation.
+              </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Education</h3>
@@ -375,7 +390,7 @@ const Hero = () => {
           <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight">
             Technical Skills
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8">
             {skills.map((skill, index) => (
               <div
                 key={index}
@@ -565,6 +580,9 @@ const Hero = () => {
           </div>
           <div className="text-center border-t border-gray-800 pt-4">
             <p className="text-gray-500 text-xs sm:text-sm">© {new Date().getFullYear()} Satyatej. All rights reserved.</p>
+            <p className="text-gray-600 text-xs mt-2">
+              Built with React, Tailwind CSS, and ❤️
+            </p>
           </div>
         </div>
       </footer>

@@ -5,6 +5,7 @@ import Particles from "../components/Particles";
 import project1Img from "../assets/project1.jpg";
 import project2Img from "../assets/project2.png";
 import project3Img from "../assets/project3.png";
+import project4Img from "../assets/project4.png";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -34,6 +35,13 @@ const Projects = () => {
       liveDemo: "https://plagiarism-mbhvwr79qwsumc6lwzealx.streamlit.app/",
       github: "https://github.com/Satyatej10/plagiarism",
     },
+    {
+          title: "Url Shortener",
+          shortDescription: "A URL shortener is a web service that converts long URLs into shorter, more manageable links for easy sharing and tracking.",
+          image: project4Img,
+          liveDemo: "https://linkly-rosy.vercel.app/",
+          github: "https://github.com/Satyatej10/url_shortner",
+        },
   ];
 
   const handleBack = () => {
