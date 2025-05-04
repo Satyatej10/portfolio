@@ -237,7 +237,7 @@ const Hero = () => {
       </style>
       <div className="absolute inset-0 w-full h-full bg-black z-[0]">
         <Particles
-          particleColors={["#ef4444", "#ffffff"]}
+          particleColors={["#14b8a6", "#ffffff"]}
           particleCount={6500}
           particleSpread={12}
           speed={0.06}
@@ -423,7 +423,7 @@ const Hero = () => {
               >
                 <SpotlightCard
                   className="custom-spotlight-card h-full bg-gray-800/70 backdrop-blur-md rounded-lg p-3 sm:p-4 flex flex-col justify-between items-center"
-                  spotlightColor="rgba(239, 68, 68, 0.2)"
+                  spotlightColor="rgba(19, 78, 74, 1)"
                 >
                   <div className="text-3xl sm:text-4xl text-white mb-2">{skill.icon}</div>
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 text-center">{skill.name}</h3>
