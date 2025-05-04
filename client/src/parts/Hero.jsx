@@ -512,7 +512,7 @@ const Hero = () => {
                   <span className="text-sm sm:text-base">Email</span>
                 </a>
                 <a
-                  href="https://linkedin.com/in/yourprofile"
+                  href="https://linkedin.com/in/satya-tej-inturi"
                   className="flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
