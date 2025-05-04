@@ -1,16 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Particles from "../components/Particles";
-import RotatingText from "../components/RotatingText";
-import ShinyText from "../components/ShinyText";
-import SpotlightCard from "../components/SpotlightCard";
-import { FaGithub, FaEnvelope, FaLinkedin,FaRobot } from "react-icons/fa";
-import img from "../assets/globe.png";
-import aboutImg from "../assets/aboutphoto.png";
-import project1Img from "../assets/project1.jpg";
-import project2Img from "../assets/project2.png";
-import project3Img from "../assets/project3.png";
-import project4Img from "../assets/black.png";
+import { useNavigate, useLocation } from "react-router-dom";
+import { FaGithub, FaEnvelope, FaLinkedin, FaRobot } from "react-icons/fa";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -21,15 +11,23 @@ import {
   FaCuttlefish,
   FaPython,
   FaBrain,
-
 } from "react-icons/fa";
 import { SiMongodb, SiTailwindcss } from "react-icons/si";
+import Particles from "../components/Particles";
+import RotatingText from "../components/RotatingText";
+import ShinyText from "../components/ShinyText";
+import SpotlightCard from "../components/SpotlightCard";
+import aboutImg from "../assets/aboutphoto.png";
+import project1Img from "../assets/project1.jpg";
+import project2Img from "../assets/project2.png";
+import project3Img from "../assets/project3.png";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,7 +40,7 @@ const Hero = () => {
 
   useEffect(() => {
     if (location.hash) {
-      const sectionId = location.hash.substring(1); // Remove the "#"
+      const sectionId = location.hash.substring(1);
       const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
@@ -82,7 +80,7 @@ const Hero = () => {
       name: "React.js",
       icon: <FaReact />,
       level: "Advanced",
-      description: "Proficient in building dynamic and responsive front-end applications using React.js, hooks, context API, and state management libraries like Redux.",
+      description: "Proficient in building dynamic and responsive front-end applications using React.js, hooks, context API, and state management libraries like tealux.",
     },
     {
       name: "Node.js",
@@ -122,13 +120,13 @@ const Hero = () => {
     },
     {
       name: "Machine Learning",
-      icon: <FaRobot />, // or <FaMicrochip /> if you prefer
+      icon: <FaRobot />,
       level: "Intermediate-Advanced",
       description: "Skilled in supervised/unsupervised learning, model evaluation, feature engineering, and implementing ML algorithms for real-world problems.",
     },
     {
       name: "scikit-learn",
-      icon: <FaPython />, // or custom sklearn icon if available
+      icon: <FaPython />,
       level: "Intermediate",
       description: "Experienced with sklearn's pipelines, model selection, preprocessing tools, and implementing various ML algorithms efficiently.",
     },
@@ -137,7 +135,7 @@ const Hero = () => {
   const projects = [
     {
       title: "FarmDirect",
-      shortDescription: "FarmDirect is an online platform connecting farmers directly with consumers for fresh, farm-to-table produce.",
+      shortDescription: "FarmDirect is an online platform connecting farmers directly with consumers for fresh, Quality produce.",
       image: project1Img,
       liveDemo: "https://farmdirect-beta.vercel.app/login",
       github: "https://github.com/Satyatej10/Farmdirect",
@@ -168,7 +166,7 @@ const Hero = () => {
   const achievements = [
     {
       title: "AptCode Champion",
-      description: "Secured 1st place in AptCode, an aptitude and coding competition, showcasing problem-solving excellence.",
+      description: "Secuteal 1st place in AptCode, an aptitude and coding competition, showcasing problem-solving excellence.",
       date: "January 2025",
     },
     {
@@ -182,18 +180,18 @@ const Hero = () => {
       date: "March 2025",
     },
     {
-      title: "CodeChef Performence",
+      title: "CodeChef Performance",
       description: "Reached a maximum rating of 1630 on CodeChef through consistent participation in coding contests.",
       date: "February 2025",
     },
     {
-      title: "Codeforces Performence",
+      title: "Codeforces Performance",
       description: "Achieved a Codeforces rating of 1000+, improving algorithmic thinking through global coding challenges.",
       date: "February 2025",
     },
     {
       title: "SIH Internal Hackathon Qualifier",
-      description: "Successfully cleared the internal hackathon round of Smart India Hackathon (SIH) with an innovative team project.",
+      description: "Successfully cleateal the internal hackathon round of Smart India Hackathon (SIH) with an innovative team project.",
       date: "December 2024",
     },
   ];
@@ -224,15 +222,26 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-black text-white overflow-hidden scroll-smooth">
-      {/* Single Background with Particles */}
+    <div className="relative w-full min-h-screen bg-black text-gray-300 overflow-hidden scroll-smooth">
+      <style>
+        {`
+          @keyframes scaleIn {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+          }
+          .animated-underline {
+            transform-origin: left;
+            animation: scaleIn 0.5s ease-in-out forwards;
+          }
+        `}
+      </style>
       <div className="absolute inset-0 w-full h-full bg-black z-[0]">
         <Particles
-          particleColors={["#ffffff", "#ffffff"]}
-          particleCount={6500} // Reduced for mobile performance
+          particleColors={["#ef4444", "#ffffff"]}
+          particleCount={6500}
           particleSpread={12}
-          speed={0.06} // Slightly slower for mobile
-          particleBaseSize={60} // Smaller particles on mobile
+          speed={0.06}
+          particleBaseSize={60}
           moveParticlesOnHover={true}
           alphaParticles={false}
           disableRotation={false}
@@ -245,7 +254,7 @@ const Hero = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <span className="font-bold text-lg sm:text-xl text-white tracking-wide">SATYATEJ</span>
+              <span className="font-bold text-lg sm:text-xl text-teal-400 tracking-wide">SATYATEJ</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
@@ -253,7 +262,7 @@ const Hero = () => {
                   key={item.name}
                   href={item.path}
                   onClick={(e) => handleScroll(e, item.path)}
-                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 cursor-pointer"
+                  className="text-gray-300 hover:text-teal-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 cursor-pointer"
                 >
                   {item.name}
                 </a>
@@ -262,7 +271,7 @@ const Hero = () => {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-teal-400 focus:outline-none"
               >
                 <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   {isOpen ? (
@@ -283,7 +292,7 @@ const Hero = () => {
                   key={item.name}
                   href={item.path}
                   onClick={(e) => handleScroll(e, item.path)}
-                  className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer"
+                  className="text-gray-300 hover:text-teal-400 block px-3 py-2 rounded-md text-base font-medium cursor-pointer"
                 >
                   {item.name}
                 </a>
@@ -301,12 +310,14 @@ const Hero = () => {
           } w-full max-w-7xl px-4 sm:px-5`}
         >
           <div className="w-full max-w-lg text-left">
-            <h1 className="text-3xl sm:text-4xl font-bold mb-4 mt-5 animate-fadeInScale tracking-tight">I AM SATYATEJ</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-4 mt-5 tracking-tight">
+            <span className="text-white">Hello, I'm</span> <span className="text-teal-400">SATYA TEJ</span>
+            </h1>
             <p className="text-gray-300 text-xl sm:text-2xl font-bold flex flex-col sm:flex-row">
-              <p className="mt-1 mr-0 sm:mr-2">I'M A</p>
+              <p className="mt-1 mr-0 sm:mr-2">I'm a</p>
               <RotatingText
                 texts={["MERN Developer", "Competitive Programmer", "ML Enthusiast"]}
-                mainClassName="inline-block px-0 sm:px-2 bg-black-300 text-white overflow-hidden py-0 sm:py-1 justify-start rounded-lg font-semibold"
+                mainClassName="inline-block px-0 sm:px-2 bg-gray-800 text-white overflow-hidden py-0 sm:py-1 justify-start rounded-lg font-semibold"
                 staggerFrom="last"
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
@@ -317,10 +328,10 @@ const Hero = () => {
                 rotationInterval={3500}
               />
             </p>
-        <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-300 mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed">
               Welcome to my portfolio! I specialize in Back-End development with Node.js and Front-End development with React.js, delivering projects like FarmDirect and DineFinder.
             </p>
-            <p className="text-gray-400 mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-300 mt-2 sm:mt-3 text-sm sm:text-base leading-relaxed">
               Passionate about coding and innovation, I’m always excited to explore new technologies and create impactful solutions.
             </p>
           </div>
@@ -340,21 +351,44 @@ const Hero = () => {
       {/* About Section */}
       <section id="about" className="min-h-screen p-4 sm:p-5 flex items-center">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight">
-            About Me
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2 text-center tracking-tight">
+            <span className="text-white">About</span> <span className="text-teal-400">Me</span>
           </h2>
+          <div className="w-24 sm:w-32 mx-auto mb-8 sm:mb-10 border-b-2 border-teal-400 animated-underline"></div>
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
-            <div className="w-full lg:w-1/2">
-              <div className="bg-black/70 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-xl border border-gray-800">
-              <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
-                I'm Satyatej, a passionate full-stack developer with expertise in crafting 
-                <span className="text-blue-400 font-semibold"> interactive React.js applications</span>, 
-                building intelligent systems with 
-                <span className="text-blue-400 font-semibold"> cutting-edge Machine Learning</span>, 
-                and solving complex problems through 
-                <span className="text-blue-400 font-semibold"> efficient Data Structures and Algorithms</span>. 
-                I thrive at the intersection of innovation and practical implementation.
-              </p>
+            <div className="w-full lg:w-1/2 order-1 lg:order-1">
+              <div className="bg-gray-800/70 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-xl border border-gray-700">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center bg-gray-900/50 p-4 rounded-lg">
+                    <p className="text-2xl font-bold text-teal-200">3+</p>
+                    <p className="text-gray-400 text-sm">Years Coding</p>
+                  </div>
+                  <div className="text-center bg-gray-900/50 p-4 rounded-lg">
+                    <p className="text-2xl font-bold text-teal-200">5+</p>
+                    <p className="text-gray-400 text-sm">Projects</p>
+                  </div>
+                  <div className="text-center bg-gray-900/50 p-4 rounded-lg">
+                    <p className="text-2xl font-bold text-teal-200">8.70</p>
+                    <p className="text-gray-400 text-sm">CGPA</p>
+                  </div>
+                  <div className="text-center bg-gray-900/50 p-4 rounded-lg">
+                    <p className="text-2xl font-bold text-teal-200">5+</p>
+                    <p className="text-gray-400 text-sm">Certifications</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full lg:w-1/2 order-2 lg:order-2">
+              <div className="bg-gray-800/70 backdrop-blur-md rounded-xl p-6 sm:p-8 shadow-xl border border-gray-700">
+                <p className="text-gray-300 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+                  I'm Satyatej, a passionate full-stack developer with expertise in crafting 
+                  <span className="text-teal-400 font-semibold"> interactive React.js applications</span>, 
+                  building intelligent systems with 
+                  <span className="text-teal-400 font-semibold"> cutting-edge Machine Learning</span>, 
+                  and solving complex problems through 
+                  <span className="text-teal-400 font-semibold"> efficient Data Structures and Algorithms</span>. 
+                  I thrive at the intersection of innovation and practical implementation.
+                </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Education</h3>
@@ -369,17 +403,6 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end mt-6 lg:mt-0">
-              <div className="relative">
-                <img
-                  src={aboutImg}
-                  alt="Satyatej - About"
-                  loading="lazy"
-                  className="w-full max-w-xs sm:max-w-md h-auto rounded-full shadow-2xl transform hover:scale-105 transition-transform duration-300 object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-full"></div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -387,19 +410,20 @@ const Hero = () => {
       {/* Technical Skills Section */}
       <section id="skills" className="min-h-screen p-4 sm:p-5 flex items-center">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight">
-            Technical Skills
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2 text-center tracking-tight">
+            <span className="text-teal-400">Technical</span> <span className="text-white">Skills</span>
           </h2>
+          <div className="w-24 sm:w-32 mx-auto mb-8 sm:mb-10 border-b-2 border-teal-400 animated-underline"></div>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8">
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="group relative w-full sm:w-48 h-64 sm:h-56 rounded-lg shadow-md border border-gray-800"
+                className="group relative w-full sm:w-48 h-64 sm:h-56 rounded-lg shadow-md border border-gray-700"
                 style={{ perspective: "1000px" }}
               >
                 <SpotlightCard
-                  className="custom-spotlight-card h-full bg-black/70 backdrop-blur-md rounded-lg p-3 sm:p-4 flex flex-col justify-between items-center"
-                  spotlightColor="rgba(0, 229, 255, 0.2)"
+                  className="custom-spotlight-card h-full bg-gray-800/70 backdrop-blur-md rounded-lg p-3 sm:p-4 flex flex-col justify-between items-center"
+                  spotlightColor="rgba(239, 68, 68, 0.2)"
                 >
                   <div className="text-3xl sm:text-4xl text-white mb-2">{skill.icon}</div>
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 text-center">{skill.name}</h3>
@@ -414,19 +438,20 @@ const Hero = () => {
       {/* Projects Section */}
       <section id="projects" className="min-h-screen p-4 sm:p-5">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight">
-            My Projects
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2 text-center tracking-tight">
+            <span className="text-white">My</span> <span className="text-teal-400">Projects</span>
           </h2>
+          <div className="w-24 sm:w-32 mx-auto mb-8 sm:mb-10 border-b-2 border-teal-400 animated-underline"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.slice(0, 3).map((project, index) => (
               <div
                 key={index}
-                className="bg-black/50 backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-black/60"
+                className=" backdrop-blur-md rounded-lg shadow-lg p-4 sm:p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl "
               >
                 <img
                   src={project.image}
                   alt={`${project.title} preview`}
-                  className="w-full h-32 sm:h-40 object-cover rounded-md mb-4 transition-transform duration-300 hover:scale-110"
+                  className="w-full h-32 sm:h-40 object-cover rounded-md mb-4 transition-transform duration-300 hover:scale-101"
                 />
                 <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">{project.title}</h3>
                 <p className="text-gray-300 text-sm sm:text-base mb-4 leading-relaxed">{project.shortDescription}</p>
@@ -435,7 +460,7 @@ const Hero = () => {
                     href={project.liveDemo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 sm:px-4 sm:py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base"
+                    className="px-3 py-1 sm:px-4 sm:py-2 bg-teal-700 text-white rounded-md hover:bg-teal-600 transition-colors duration-200 text-sm sm:text-base"
                   >
                     Live Demo
                   </a>
@@ -443,7 +468,7 @@ const Hero = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-3 py-1 sm:px-4 sm:py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900 transition-colors duration-200 flex items-center text-sm sm:text-base"
+                    className="px-3 py-1 sm:px-4 sm:py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors duration-200 flex items-center text-sm sm:text-base"
                   >
                     <FaGithub className="mr-2" /> GitHub
                   </a>
@@ -454,7 +479,7 @@ const Hero = () => {
           <div className="mt-6 sm:mt-8 text-center">
             <button
               onClick={handleShowMore}
-              className="px-4 py-2 sm:px-6 sm:py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm sm:text-base cursor-pointer"
+              className="px-4 py-2 sm:px-6 sm:py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors duration-200 text-sm sm:text-base cursor-pointer"
             >
               Show More
             </button>
@@ -465,14 +490,15 @@ const Hero = () => {
       {/* Achievements Section */}
       <section id="achievements" className="min-h-screen p-4 sm:p-5 flex items-center">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-12 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight">
-            My Achievements
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2 text-center tracking-tight">
+            <span className="text-white">My</span> <span className="text-teal-400">Achievements</span>
           </h2>
+          <div className="w-24 sm:w-32 mx-auto mb-8 sm:mb-12 border-b-2 border-teal-400 animated-underline"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {achievements.map((achievement, index) => (
               <div
                 key={index}
-                className="bg-black/60 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 border border-gray-800 hover:shadow-xl hover:bg-black/70 transition-all duration-300 flex flex-col justify-between min-h-[220px] sm:min-h-[250px]"
+                className="bg-gray-800/60 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 border border-gray-700 hover:shadow-xl hover:bg-gray-800/70 transition-all duration-300 flex flex-col justify-between min-h-[220px] sm:min-h-[250px]"
               >
                 <ShinyText
                   text={achievement.title}
@@ -483,7 +509,7 @@ const Hero = () => {
                 <p className="text-gray-300 text-sm sm:text-base text-center leading-relaxed flex-grow">
                   {achievement.description}
                 </p>
-                <p className="text-gray-500 text-xs sm:text-sm text-center mt-4 font-medium">{achievement.date}</p>
+                <p className="text-gray-400 text-xs sm:text-sm text-center mt-4 font-medium">{achievement.date}</p>
               </div>
             ))}
           </div>
@@ -491,20 +517,20 @@ const Hero = () => {
       </section>
 
       {/* Footer with Form */}
-      <footer id="connect" className="relative bg-black text-white py-8 sm:py-12">
+      <footer id="connect" className="relative bg-black text-gray-300 py-8 sm:py-12">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight">
-            Connect With Me
+          <h2 className="text-3xl sm:text-4xl font-bold mb-2 text-center tracking-tight">
+            <span className="text-teal-400">Connect</span> <span className="text-white">With Me</span>
           </h2>
+          <div className="w-24 sm:w-32 mx-auto mb-6 sm:mb-8 border-b-2 border-teal-400 animated-underline"></div>
           <p className="text-gray-400 mb-4 sm:mb-6 text-sm sm:text-base text-center">Want to collaborate? Drop me a message!</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
-            {/* Social Links */}
             <div className="flex flex-col items-center">
               <p className="text-gray-400 mb-4 text-sm sm:text-base text-center">Reach out directly:</p>
               <div className="flex flex-col space-y-4 sm:space-y-5">
                 <a
                   href="mailto:satyatejinturi@email.com"
-                  className="flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                  className="flex items-center text-teal-400 hover:text-teal-300 transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -513,7 +539,7 @@ const Hero = () => {
                 </a>
                 <a
                   href="https://linkedin.com/in/satya-tej-inturi"
-                  className="flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                  className="flex items-center text-teal-400 hover:text-teal-300 transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -522,7 +548,7 @@ const Hero = () => {
                 </a>
                 <a
                   href="https://github.com/Satyatej10"
-                  className="flex items-center text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                  className="flex items-center text-teal-400 hover:text-teal-300 transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -531,8 +557,7 @@ const Hero = () => {
                 </a>
               </div>
             </div>
-            {/* Form */}
-            <div className="bg-black/60 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 border border-gray-800">
+            <div className="bg-gray-800/60 backdrop-blur-lg rounded-xl shadow-lg p-4 sm:p-6 border border-gray-700">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <input
@@ -541,8 +566,8 @@ const Hero = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your Name"
-                    required
-                    className="w-full px-3 sm:px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
+                    requiteal
+                    className="w-full px-3 sm:px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-300 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200"
                   />
                 </div>
                 <div>
@@ -552,8 +577,8 @@ const Hero = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Your Email"
-                    required
-                    className="w-full px-3 sm:px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
+                    requiteal
+                    className="w-full px-3 sm:px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-300 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200"
                   />
                 </div>
                 <div>
@@ -562,15 +587,15 @@ const Hero = () => {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Your Message"
-                    required
+                    requiteal
                     rows="3"
-                    className="w-full px-3 sm:px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 resize-none"
+                    className="w-full px-3 sm:px-4 py-2 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-300 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200 resize-none"
                   />
                 </div>
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="px-4 py-2 sm:px-6 sm:py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 text-sm sm:text-base cursor-pointer"
+                    className="px-4 py-2 sm:px-6 sm:py-2 bg-teal-600 text-white font-semibold rounded-lg shadow-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 transition-all duration-200 text-sm sm:text-base cursor-pointer"
                   >
                     Send Message
                   </button>
@@ -578,9 +603,9 @@ const Hero = () => {
               </form>
             </div>
           </div>
-          <div className="text-center border-t border-gray-800 pt-4">
-            <p className="text-gray-500 text-xs sm:text-sm">© {new Date().getFullYear()} Satyatej. All rights reserved.</p>
-            <p className="text-gray-600 text-xs mt-2">
+          <div className="text-center border-t border-gray-700 pt-4">
+            <p className="text-gray-400 text-xs sm:text-sm">© {new Date().getFullYear()} Satyatej. All rights reserved.</p>
+            <p className="text-gray-400 text-xs mt-2">
               Built with React, Tailwind CSS, and ❤️
             </p>
           </div>
