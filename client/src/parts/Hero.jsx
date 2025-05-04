@@ -6,7 +6,7 @@ import ShinyText from "../components/ShinyText";
 import SpotlightCard from "../components/SpotlightCard";
 import { FaGithub, FaEnvelope, FaLinkedin,FaRobot } from "react-icons/fa";
 import img from "../assets/globe.png";
-import aboutImg from "../assets/black.png";
+import aboutImg from "../assets/aboutphoto.png";
 import project1Img from "../assets/project1.jpg";
 import project2Img from "../assets/project2.png";
 import project3Img from "../assets/project3.png";
@@ -327,7 +327,7 @@ const Hero = () => {
           {!isSmallScreen && (
             <div className="w-full max-w-md flex items-center justify-end">
               <img
-                src={img}
+                src={aboutImg}
                 alt="Satyatej"
                 loading="lazy"
                 className="w-full max-w-lg h-auto rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
