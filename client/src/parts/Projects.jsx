@@ -6,7 +6,8 @@ import project1Img from "../assets/project1.jpg";
 import project2Img from "../assets/project2.png";
 import project3Img from "../assets/project3.png";
 import project4Img from "../assets/project4.png";
-
+import project6Img from "../assets/project6.png"
+import project5Img from "../assets/project5.png"
 const Projects = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -41,9 +42,24 @@ const Projects = () => {
       title: "Url Shortener",
       shortDescription:
         "A URL shortener is a web service that converts long URLs into shorter, more manageable links for easy sharing and tracking.",
-      image: project3Img,
+      image: project4Img,
       liveDemo: "https://linkly-rosy.vercel.app/",
       github: "https://github.com/Satyatej10/url_shortner",
+    },
+    
+    {
+      title: "MediPred",
+      shortDescription: "A Web Application built using Flask and Machine learning to predict diseases from symptoms, offering health insights and educational resources.",
+      image: project5Img, 
+      liveDemo: "https://medicine-recommendation-system-production.up.railway.app/",
+      github: "https://github.com/Satyatej10/Medicine-Recommendation-System",
+    },
+    {
+      title: "Eco Shade",
+      shortDescription: "A web app built with HTML, CSS, and JavaScript that generates color palettes based on user-selected moods for design inspiration.",
+      image: project6Img,
+      liveDemo: "https://echoshade.vercel.app/",
+      github: "https://github.com/Satyatej10/EchoShade",
     },
   ];
 
@@ -102,9 +118,9 @@ const Projects = () => {
       <div className="absolute inset-0 w-full h-full bg-black z-[0]">
         <Particles
           particleColors={["#14b8a6", "#ffffff"]}
-          particleCount={2000}
+          particleCount={1800}
           particleSpread={12}
-          speed={0.06}
+          speed={0.1}
           particleBaseSize={60}
           moveParticlesOnHover={true}
           alphaParticles={false}
